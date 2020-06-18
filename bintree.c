@@ -62,7 +62,7 @@ BinTree Tree(infotype X, BinTree L, BinTree R)
 	if(P!=Nil)
 	{   Info(P)=X;
 	    Left(P)=L;
-            Right(P)=R;	    
+        Right(P)=R;	    
 	}
 	return (P);
 }
@@ -156,7 +156,7 @@ void PrintTree(BinTree P)
     /* F.S  : semua simpul P sudah ditulis / preorder	*/
 	if(P==Nil)
 	{
-	  printf("[ ]");	
+	  printf("");	
 	} else  {
 		    printf("%c",Info(P));
 		    PrintTree(Left(P));
@@ -249,6 +249,31 @@ void AddDaunTerkiri(BinTree *P, infotype X)
 	}
 }
 
+void AddDaun(BinTree *P, infotype X, boolean InputKiri)
+{
+	address N;
+	if(InputKiri)
+	{
+		if(Left(*P)==Nil)
+		{
+			N = Alokasi(X);
+			Left(*P) = N;
+		} else
+		{
+			printf("Node ini sudah memiliki anak kiri\n");
+		}
+	} else
+	{
+		if(Right(*P)==Nil)
+		{
+			N = Alokasi(X);
+			Right(*P) = N;
+		} else
+		{
+			printf("Node ini suadh memiliki anak kanan\n");
+		}
+	}
+}
 
 /* *********** MEMBENTUK BALANCE TREE ************* */
 

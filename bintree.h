@@ -133,7 +133,7 @@ void AddDaunTerkiri(BinTree *P, infotype X);
 /* I.S   : P boleh kosong 	*/
 /* F.S   : P bertambah simpulnya, dengan X sbg simpul daun terkiri */  		
 
-void AddDaun(BinTree *P, infotype X, infotype Y, boolean InputKiri);
+void AddDaun(BinTree *P, infotype X, boolean InputKiri);
 /* I.S   : P boleh kosong 	*/
 /* F.S   : P bertambah simpulnya, dengan Y sbg anak kiri X 		*/
 /*	   jika kiri); atau sebagai anak kanan X (jika Not Kiri)	*/
