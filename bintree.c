@@ -52,6 +52,18 @@ BinTree GetRight(BinTree P)
     return Right(P);
 }
 
+BinTree GetParent(BinTree P, BinTree search)
+{
+	if(Left(P) == Nil && Right(P) == Nil)
+		return Nil;
+	if(Info(Left(P)) == Info(search) || Info(Right(P)) == Info(search))
+		return P;
+	BinTree leftSearch = GetParent(Left(P), search);
+	if(leftSearch != Nil)
+		return leftSearch;
+	return GetParent(Right(P), search);
+}
+
 /* ***************** KONSTRUKTOR ****************  */
 
 BinTree Tree(infotype X, BinTree L, BinTree R)
@@ -181,6 +193,28 @@ boolean Search(BinTree P, infotype X)
 	boolean found2 = Search(Right(P), X); //Lanjutkan pencarian ke anak kanan
 	
 	return found2; //Kembalikan false jika tidak ketemu pada anak kanan, atau kembalikan true jika ketemu pada anak kanan
+}
+
+BinTree SearchAdr(BinTree P, infotype X)
+{
+	if (P==Nil)
+	{
+		return Nil;
+	}
+	
+	if (Info(P)==X) //Jika data info pada node P sama dengan X, kembalikan nilai true
+	{
+		return P;
+	}
+	
+	BinTree Find = SearchAdr(Left(P), X); //Lanjutkan mencari kepada anak kiri
+	
+	if(Find!=Nil) //Jika sudah ketemu, maka hentikan pencarian (tidak perlu mencari ke anak kanan)
+		return Find;
+		
+	BinTree Find2 = SearchAdr(Right(P), X); //Lanjutkan pencarian ke anak kanan
+	
+	return Find2; //Kembalikan false jika tidak ketemu pada anak kanan, atau kembalikan true jika ketemu pada anak kanan
 }
 
 /* *********** FUNGSI LAIN  *********** */

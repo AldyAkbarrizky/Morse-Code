@@ -49,6 +49,9 @@ BinTree GetLeft(BinTree P);
 BinTree GetRight(BinTree P);
 /* Mengirimkan anak kanan pohon biner P  */
 
+BinTree GetParent(BinTree P, BinTree Search);
+/* Mengirimkan parent pohon biner P */
+
 /* ******** KONSTRUKTOR ************ */
 BinTree Tree(infotype X, BinTree L, BinTree R);
 /* Menghasilkan sebuah pohon Biner dari A, L, dan R jika Alokasi berhasil */
@@ -104,6 +107,8 @@ void PrintTree(BinTree P);
 /* ************ SEARCH **************** */
 boolean Search(BinTree P, infotype X);
 /* Mengirimkan true jika ada node dari P yang bernilai X */
+
+BinTree SearchAdr(BinTree P, infotype X);
 
 boolean SearchHur(BinTree P, infotype X);
 /* Mengirimkan true jika ada node dari P yang berhuruf X */
