@@ -11,4 +11,6 @@ void DecodeMorse(BinTree P, char morse[]);
 
 void printMorseCode(BinTree P, char *code);
 
+void EncodeMorseCodeToFile(BinTree P, char text[]);
+
 #endif

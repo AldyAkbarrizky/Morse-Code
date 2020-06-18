@@ -170,4 +170,41 @@ void printMorseCode(BinTree P, char *code)
 	printf("%c", Info(P));
 }
 
+void EncodeMorseCodeToFile(BinTree P, char text[])
+{
+	FILE *frec;
+	BinTree X, parent;
+	int i, j, counter;
+	char morse[6];
+	if((frec=fopen("output.txt", "wb")) != Nil)
+	{
+		printf("%d", strlen(text));
+		for( i=0; i<strlen(text)-1; i++)
+		{
+			counter = 0;
+			X = SearchAdr(P, text[i]);
+			while(Info(X)!='\\')
+			{
+				parent = GetParent(P, X);
+				if(Info(Left(parent))==Info(X))
+				{
+					morse[counter] = '.';
+				} else
+				{
+					morse[counter] = '-';
+				}
+				X = parent;
+				counter++;
+				printf("%c", morse[counter]);
+			}
+			printf("  ");
+		}
+	} else
+	{
+		printf("Gagal membuat file!");
+	}
+	printf("\n");
+	getch();
+}
+
 #endif

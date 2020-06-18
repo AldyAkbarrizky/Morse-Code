@@ -10,6 +10,8 @@ int main() {
 	int choice;
 	boolean exit = false;
 	char word[256];
+	char fileteks[575];
+	FILE *fp;
 	
 	printf("Membuat pohon morse...\n");
 	Sleep(2000);
@@ -27,8 +29,9 @@ int main() {
 		printf("=============================================\n");
 		printf("1. Encode dari Kalimat menjadi Sandi Morse\n");
 		printf("2. Decode dari Sandi Morse menjadi Kalimat\n");
-		printf("3. Keluar\n");
-		printf("Pilihan anda? (1/2): ");scanf("%d", &choice);
+		printf("3. Membuka file\n");
+		printf("4. Keluar\n");
+		printf("Pilihan anda? (1-4): ");scanf("%d", &choice);
 		fflush(stdin);
 		switch(choice)
 		{
@@ -42,7 +45,23 @@ int main() {
 				printf("Inputkan sandi morse: ");
 				fgets(word, sizeof(word), stdin);
 				DecodeMorse(P, strupr(word));
+				getch();
+				break;
 			case 3:
+				printf("Membuka file");
+				fp = fopen("input.txt", "r");
+				if(fp!=Nil)
+				{
+					while(fgets(fileteks, 575, fp) != Nil)
+					{
+						EncodeMorseCodeToFile(P, fileteks);
+					}
+					fclose(fp);
+				} else
+				{
+					printf("Gagal membuka file\n");
+				}
+			case 4:
 				exit = true;
 				break;
 			default:
