@@ -144,8 +144,30 @@ void EncodeMorse(BinTree P, char text[])
 
 void DecodeMorse(BinTree P, char morse[])
 {
-	printf("%s\n", morse);
-	system("pause");
+	char *code;
+	
+	code = strtok(morse, "  ");
+	while(code!=Nil)
+	{
+		printMorseCode(P, code);
+		code = strtok(Nil, "  ");
+	}
+}
+
+void printMorseCode(BinTree P, char *code)
+{
+	int i;
+	char sign;
+	
+	for(i=0; i<strlen(code); i++)
+	{
+		sign = *(code+i);
+		if(sign=='.')
+			P = Left(P);
+		else if(sign=='-')
+			P = Right(P);
+	}
+	printf("%c", Info(P));
 }
 
 #endif

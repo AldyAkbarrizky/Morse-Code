@@ -9,4 +9,6 @@ void EncodeMorse(BinTree P, char text[]);
 
 void DecodeMorse(BinTree P, char morse[]);
 
+void printMorseCode(BinTree P, char *code);
+
 #endif

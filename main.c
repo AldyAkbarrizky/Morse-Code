@@ -16,11 +16,6 @@ int main() {
 	MakeTree('\\', Nil, Nil, &P);
 	createMorseTree(&P);
 	printf("Pohon Morse telah berhasil dibuat...\n");
-	//printf("Hasil pohon morse dengan inorder...\n");
-	//Inorder(P);
-	BinTree xm = SearchAdr(P, ' ');
-	BinTree xb = GetParent(P, xm);
-	BinTree xc = GetParent(P, xb);
 	printf("Pohon Morse dengan Inorder:\n");
 	Inorder(P);
 	printf("\n\nNOTE: Beberapa simbol karakter ditambahkan kepada pohon morsenya. Dan untuk node kosong kami ganti dengan karakter |. Juga untuk kode morse spasi, masih tidak sesuai dengan ketentuan\n\n");
